@@ -90,16 +90,17 @@ if 'RDS_DB_NAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hr_db',
-        'USER': 'dbtest',
-        'PASSWORD': 'dbtest',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'hr_db',
+            'USER': 'dbtest',
+            'PASSWORD': 'dbtest',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
     }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -117,7 +118,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATIC_URL = '/static/'
 ######### DJANGO SUIT CONFIGURATION
 SUIT_CONFIG = {
